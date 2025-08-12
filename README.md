@@ -88,7 +88,7 @@ Raw log files can be processed to extract structured data including:
 
 ## Master Log Index
 
-The `index/master_log_index.csv` file provides a quick reference to all log files with their test descriptions:
+The `index/master_log_index.csv` file provides a quick reference to all log files with their test descriptions and direct navigation links:
 
 | Column | Description |
 |--------|-------------|
@@ -99,11 +99,19 @@ The `index/master_log_index.csv` file provides a quick reference to all log file
 | metadata_file | Associated metadata JSON file |
 | created_at | Test execution timestamp |
 | test_description | Brief description of the test type |
+| log_link | Relative path to the log file (clickable in compatible viewers) |
+| metadata_link | Relative path to the metadata file (clickable in compatible viewers) |
 
 ### Example Index Entry
 ```
-2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation"
+2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation",logs/2025-08-12/SCN_2025_08_12_001.log,logs/2025-08-12/SCN_2025_08_12_001.metadata.json
 ```
+
+**Navigation Benefits:**
+- Click on `log_link` to open the raw telemetry data file
+- Click on `metadata_link` to view the test metadata and baseline readings
+- Works in Excel, Google Sheets, and other CSV-compatible applications
+- Enables quick browsing and analysis of test data
 
 ## Goals
 
