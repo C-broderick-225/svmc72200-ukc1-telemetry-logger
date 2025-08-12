@@ -45,14 +45,14 @@ ehthumbs.db
 Thumbs.db
 
 # Large files (>10MB)
-*.log
 *.json
 !*.metadata.json
+!*.log
 
-# Logs
-*.log
-logs/*.csv
-logs/*.json
+# Temporary files
+*.tmp
+*.temp
+.cache/
 
 # Temporary files
 *.tmp

@@ -88,29 +88,30 @@ Raw log files can be processed to extract structured data including:
 
 ## Master Log Index
 
-The `index/master_log_index.csv` file provides a quick reference to all log files with their test descriptions and embedded navigation links:
+The `index/master_log_index.csv` file provides a quick reference to all log files with their test descriptions and direct navigation links:
 
 | Column | Description |
 |--------|-------------|
 | date | Date of the test (YYYY-MM-DD) |
-| filename | **Clickable link** to the raw log file on GitHub |
+| filename | Log file name |
 | file_size | Size of log file in bytes |
 | record_count | Number of data records in log |
-| metadata_file | **Clickable link** to the metadata file on GitHub |
+| metadata_file | Associated metadata JSON file |
 | created_at | Test execution timestamp |
 | test_description | Brief description of the test type |
+| log_link | Direct link to view the raw log file on GitHub |
+| metadata_link | Direct link to view the metadata file on GitHub |
 
 ### Example Index Entry
 ```
-2025-08-12,=HYPERLINK("https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.log","SCN_2025_08_12_001.log"),1400,0,=HYPERLINK("https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.metadata.json","SCN_2025_08_12_001.metadata.json"),2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation"
+2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation",https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.log,https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.metadata.json
 ```
 
 **Navigation Benefits:**
-- Click on **filename** to open the raw telemetry data file
-- Click on **metadata_file** to view the test metadata and baseline readings
-- Uses Excel HYPERLINK function for compatibility
-- Works in Excel, Google Sheets, and other spreadsheet applications
-- Clean, compact format without extra columns
+- Click on `log_link` to open the raw telemetry data file
+- Click on `metadata_link` to view the test metadata and baseline readings
+- Works in Excel, Google Sheets, and other CSV-compatible applications
+- Enables quick browsing and analysis of test data
 
 ## Goals
 
