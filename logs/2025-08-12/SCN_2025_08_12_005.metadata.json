@@ -1,0 +1,12 @@
+{
+  "scenario_id": "SCN_2025_08_12_005",
+  "date_time": "2025-08-12T16:22:00Z",
+  "test_type": "PAS Change",
+  "notes": "PAS starting from 1...2,3,4,5,4,3,2,1",
+  "start_voltage": 81.34,
+  "resting_throttle": 1.07,
+  "controller_temperature": 32,
+  "motor_temperature": 24,
+  "slide_regen_mode_enabled": true,
+  "pas_level": 1
+}
