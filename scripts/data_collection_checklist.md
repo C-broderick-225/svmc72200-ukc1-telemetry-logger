@@ -18,7 +18,7 @@
 - [ ] Generate **Scenario ID** (SCN_YYYY_MM_DD_XXX format)
 - [ ] Rename capture.txt to SCN_YYYY_MM_DD_XXX.log
 - [ ] Create metadata JSON file
-- [ ] Update master_log_index.csv with test description
+- [ ] Update master_log_index.csv with test description and hyperlinks
 - [ ] Place files in correct date folder
 
 ## Example Scenario ID Generation

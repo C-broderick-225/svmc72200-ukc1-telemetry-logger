@@ -99,12 +99,12 @@ The `index/master_log_index.csv` file provides a quick reference to all log file
 | metadata_file | Associated metadata JSON file |
 | created_at | Test execution timestamp |
 | test_description | Brief description of the test type |
-| log_link | Relative path to the log file (clickable in compatible viewers) |
-| metadata_link | Relative path to the metadata file (clickable in compatible viewers) |
+| log_link | Direct link to view the raw log file on GitHub |
+| metadata_link | Direct link to view the metadata file on GitHub |
 
 ### Example Index Entry
 ```
-2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation",logs/2025-08-12/SCN_2025_08_12_001.log,logs/2025-08-12/SCN_2025_08_12_001.metadata.json
+2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation",https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.log,https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.metadata.json
 ```
 
 **Navigation Benefits:**
