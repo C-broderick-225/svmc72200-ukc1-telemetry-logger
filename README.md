@@ -19,7 +19,7 @@ svmc72200-ukc1-telemetry-logs/
 │       ├── SCN_YYYY_MM_DD_XXX.log    # Raw telemetry data files
 │       └── SCN_YYYY_MM_DD_XXX.metadata.json  # Associated metadata
 ├── index/                   # Log indexing and tracking
-│   └── master_log_index.csv # Master index of all log files
+│   └── master_log_index.csv # Master index of all log files with test descriptions
 └── scripts/                 # Data processing and analysis scripts
 ```
 
@@ -84,6 +84,25 @@ Raw log files can be processed to extract structured data including:
 ### Example Raw Data
 ```
 18F880060000000060060000000086E618F880060000000060060000000086E6...
+```
+
+## Master Log Index
+
+The `index/master_log_index.csv` file provides a quick reference to all log files with their test descriptions:
+
+| Column | Description |
+|--------|-------------|
+| date | Date of the test (YYYY-MM-DD) |
+| filename | Log file name |
+| file_size | Size of log file in bytes |
+| record_count | Number of data records in log |
+| metadata_file | Associated metadata JSON file |
+| created_at | Test execution timestamp |
+| test_description | Brief description of the test type |
+
+### Example Index Entry
+```
+2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation"
 ```
 
 ## Goals
