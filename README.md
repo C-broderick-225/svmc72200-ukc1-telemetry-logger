@@ -5,6 +5,7 @@ This repository contains structured data logs captured from an **SVMC 72200 e-bi
 ## Project Description
 
 This project systematically captures and stores telemetry data from e-bike controller systems to enable:
+
 - Performance analysis and optimization
 - Troubleshooting and diagnostics
 - Comparative testing across different scenarios
@@ -12,7 +13,7 @@ This project systematically captures and stores telemetry data from e-bike contr
 
 ## Folder Structure
 
-```
+```text
 svmc72200-ukc1-telemetry-logs/
 ├── capture/                 # Raw capture.txt files before processing
 ├── logs/                    # Processed telemetry data files
@@ -21,19 +22,45 @@ svmc72200-ukc1-telemetry-logs/
 │       └── SCN_YYYY_MM_DD_XXX.metadata.json  # Associated metadata
 ├── index/                   # Log indexing and tracking
 │   └── master_log_index.csv # Master index of all log files with test descriptions
-└── scripts/                 # Data processing and analysis scripts
+└── cli/                     # Interactive CLI program and helpers
 ```
 
 ## Logging Methodology
 
 ### Data Collection Process
+
 1. **Pre-Test Baseline**: Record system state from mobile app (voltage, temperatures, throttle position)
+
 2. **Test Planning**: Define test type and parameters
+
 3. **Data Capture**: Record telemetry during test execution
+
 4. **Raw Data Storage**: Place `capture.txt` in the `capture/` directory
-5. **Processing**: Convert `capture.txt` to `SCN_YYYY_MM_DD_XXX.log` in appropriate date folder
+
+5. **Processing**: Move `capture.txt` unchanged to `logs/YYYY-MM-DD/SCN_YYYY_MM_DD_XXX.log`
+
 6. **Metadata Creation**: Generate metadata file with baseline readings
+
 7. **Indexing**: Update master log index with new entries
+
+## CLI
+
+- `cli/interactive_capture.py`: Interactive flow that prompts for metadata, verifies the capture file, moves it, writes metadata JSON, and updates `index/master_log_index.csv`. It also appends full GitHub links for easy navigation.
+
+  Usage:
+
+  ```bash
+  python cli/interactive_capture.py
+  ```
+
+  Features:
+  - Auto scenario ID generation `SCN_YYYY_MM_DD_XXX`
+  - Reuse previous session inputs when processing multiple logs
+  - Accepts alternate `capture - test.txt` if `capture.txt` is missing
+  - Metadata-only mode (still indexed) when no capture is available
+  - Git commit/push prompt at the end of each run
+
+- `cli/backfill_index_links.py`: Backfills `log_link` and `metadata_link` in the master index using the repo path from `cli/config.py`.
 
 ### Metadata Fields
 
@@ -47,7 +74,8 @@ Each log file is accompanied by a metadata JSON file containing:
 - **Resting Throttle**: Throttle voltage at rest (V)
 - **Controller Temperature**: Initial controller temperature (°C)
 - **Motor Temperature**: Initial motor temperature (°C)
-- **Mode Setting**: Controller mode configuration (e.g., "slide regen mode")
+- **Slide Regen Mode Enabled**: `true`/`false`
+- **PAS Level**: Integer 0–5
 
 ## Example Metadata JSON
 
@@ -61,7 +89,8 @@ Each log file is accompanied by a metadata JSON file containing:
   "resting_throttle": 1.07,
   "controller_temperature": 31,
   "motor_temperature": 23,
-  "mode_setting": "slide regen mode"
+  "slide_regen_mode_enabled": true,
+  "pas_level": 3
 }
 ```
 
@@ -75,7 +104,9 @@ The telemetry log files contain raw hexadecimal data captured directly from the 
 - **Processing**: Data requires parsing to extract individual parameters
 
 ### Data Processing
+
 Raw log files can be processed to extract structured data including:
+
 - Battery voltage
 - Motor current
 - Vehicle speed
@@ -84,8 +115,9 @@ Raw log files can be processed to extract structured data including:
 - Brake status
 - And other telemetry parameters
 
-### Example Raw Data
-```
+### Example Raw Data (moved unchanged)
+
+```text
 18F880060000000060060000000086E618F880060000000060060000000086E6...
 ```
 
@@ -106,11 +138,13 @@ The `index/master_log_index.csv` file provides a quick reference to all log file
 | metadata_link | Direct link to view the metadata file on GitHub |
 
 ### Example Index Entry
-```
+
+```text
 2025-08-12,SCN_2025_08_12_001.log,1400,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z,"Simulated test - logging system and structure validation",https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.log,https://github.com/C-broderick-225/svmc72200-ukc1-telemetry-logs/blob/main/logs/2025-08-12/SCN_2025_08_12_001.metadata.json
 ```
 
 **Navigation Benefits:**
+
 - Click on `log_link` to open the raw telemetry data file
 - Click on `metadata_link` to view the test metadata and baseline readings
 - Works in Excel, Google Sheets, and other CSV-compatible applications
@@ -131,6 +165,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contributing
 
 When adding new log files:
+
 1. Follow the established naming convention
 2. Include complete metadata
 3. Update the master log index

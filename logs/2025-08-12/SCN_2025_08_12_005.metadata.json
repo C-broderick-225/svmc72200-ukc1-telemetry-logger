@@ -1,0 +1,12 @@
+{
+  "scenario_id": "SCN_2025_08_12_005",
+  "date_time": "2025-08-12T15:30:00Z",
+  "test_type": "testing of dumby file",
+  "notes": "",
+  "start_voltage": 81.4,
+  "resting_throttle": 1.07,
+  "controller_temperature": 32,
+  "motor_temperature": 23,
+  "slide_regen_mode_enabled": true,
+  "pas_level": 1
+}

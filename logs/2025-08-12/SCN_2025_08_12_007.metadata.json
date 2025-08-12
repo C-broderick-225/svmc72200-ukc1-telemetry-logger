@@ -1,8 +1,8 @@
 {
-  "scenario_id": "SCN_2025_08_12_001",
-  "date_time": "2025-08-12T15:05:00Z",
-  "test_type": "Basic test",
-  "notes": "This is a test with no important logged data",
+  "scenario_id": "SCN_2025_08_12_007",
+  "date_time": "2025-08-12T15:37:00Z",
+  "test_type": "sean demo",
+  "notes": "cli demo",
   "start_voltage": 81.4,
   "resting_throttle": 1.07,
   "controller_temperature": 31,
