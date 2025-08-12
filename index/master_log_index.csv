@@ -1,0 +1,2 @@
+date,filename,file_size,record_count,metadata_file,created_at
+# Master log index - tracks all log files and their metadata
