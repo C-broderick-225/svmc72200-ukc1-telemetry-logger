@@ -16,7 +16,7 @@ This project systematically captures and stores telemetry data from e-bike contr
 svmc72200-ukc1-telemetry-logs/
 ├── logs/                    # Raw telemetry data files
 │   └── YYYY-MM-DD/         # Date-organized log directories
-│       ├── SCN_YYYY_MM_DD_XXX.csv    # Telemetry data files
+│       ├── SCN_YYYY_MM_DD_XXX.log    # Raw telemetry data files
 │       └── SCN_YYYY_MM_DD_XXX.metadata.json  # Associated metadata
 ├── index/                   # Log indexing and tracking
 │   └── master_log_index.csv # Master index of all log files
@@ -62,24 +62,29 @@ Each log file is accompanied by a metadata JSON file containing:
 }
 ```
 
-## CSV Column Descriptions
+## Raw Log Data Format
 
-The telemetry CSV files contain the following columns:
+The telemetry log files contain raw hexadecimal data captured directly from the SVMC 72200 controller. The data format includes:
 
-| Column | Description | Units | Data Type |
-|--------|-------------|-------|-----------|
-| timestamp | Recording timestamp | ISO 8601 | String |
-| voltage | Battery voltage | V | Float |
-| current | Motor current | A | Float |
-| speed | Vehicle speed | mph | Float |
-| power | Motor power output | W | Float |
-| temperature | Controller temperature | °C | Float |
-| throttle_position | Throttle input position | % | Integer |
-| brake_status | Brake engagement status | Boolean | Integer |
-| assist_level | PAS assist level | Level | Integer |
-| cadence | Pedal cadence | RPM | Float |
-| distance | Cumulative distance | miles | Float |
-| trip_time | Trip duration | seconds | Integer |
+- **File Extension**: `.log` (raw telemetry data)
+- **Data Format**: Hexadecimal strings
+- **Content**: Raw controller communication data
+- **Processing**: Data requires parsing to extract individual parameters
+
+### Data Processing
+Raw log files can be processed to extract structured data including:
+- Battery voltage
+- Motor current
+- Vehicle speed
+- Controller temperature
+- Throttle position
+- Brake status
+- And other telemetry parameters
+
+### Example Raw Data
+```
+18F880060000000060060000000086E618F880060000000060060000000086E6...
+```
 
 ## Goals
 

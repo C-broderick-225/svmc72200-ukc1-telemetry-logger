@@ -1,4 +1,4 @@
 date,filename,file_size,record_count,metadata_file,created_at
 # Master log index - tracks all log files and their metadata
-2025-08-12,SCN_2025_08_12_001.csv,0,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z
-2025-08-12,SCN_2025_08_12_002.csv,0,0,SCN_2025_08_12_002.metadata.json,2025-08-12T12:40:00Z
+2025-08-12,SCN_2025_08_12_001.log,0,0,SCN_2025_08_12_001.metadata.json,2025-08-12T12:30:00Z
+2025-08-12,SCN_2025_08_12_002.log,0,0,SCN_2025_08_12_002.metadata.json,2025-08-12T12:40:00Z

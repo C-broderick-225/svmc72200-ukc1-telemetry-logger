@@ -45,9 +45,8 @@ ehthumbs.db
 Thumbs.db
 
 # Large files (>10MB)
-*.csv
+*.log
 *.json
-!index/master_log_index.csv
 !*.metadata.json
 
 # Logs
