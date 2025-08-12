@@ -1,0 +1,12 @@
+{
+  "scenario_id": "SCN_2025_08_12_008",
+  "date_time": "2025-08-12T15:39:00Z",
+  "test_type": "commmit",
+  "notes": "test",
+  "start_voltage": null,
+  "resting_throttle": null,
+  "controller_temperature": null,
+  "motor_temperature": null,
+  "slide_regen_mode_enabled": true,
+  "pas_level": 1
+}
