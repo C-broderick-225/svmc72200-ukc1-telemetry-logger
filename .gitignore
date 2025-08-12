@@ -49,6 +49,10 @@ Thumbs.db
 !*.metadata.json
 !*.log
 
+# Capture directory - temporary storage for raw data
+capture/*.txt
+!capture/.gitkeep
+
 # Temporary files
 *.tmp
 *.temp

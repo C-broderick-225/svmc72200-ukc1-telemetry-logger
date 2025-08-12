@@ -1,0 +1,2 @@
+# This directory is for raw capture.txt files before processing
+# Files in this directory will be processed and moved to logs/YYYY-MM-DD/

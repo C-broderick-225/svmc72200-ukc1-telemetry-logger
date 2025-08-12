@@ -14,9 +14,10 @@ This project systematically captures and stores telemetry data from e-bike contr
 
 ```
 svmc72200-ukc1-telemetry-logs/
-├── logs/                    # Raw telemetry data files
+├── capture/                 # Raw capture.txt files before processing
+├── logs/                    # Processed telemetry data files
 │   └── YYYY-MM-DD/         # Date-organized log directories
-│       ├── SCN_YYYY_MM_DD_XXX.log    # Raw telemetry data files
+│       ├── SCN_YYYY_MM_DD_XXX.log    # Processed telemetry data files
 │       └── SCN_YYYY_MM_DD_XXX.metadata.json  # Associated metadata
 ├── index/                   # Log indexing and tracking
 │   └── master_log_index.csv # Master index of all log files with test descriptions
@@ -29,8 +30,10 @@ svmc72200-ukc1-telemetry-logs/
 1. **Pre-Test Baseline**: Record system state from mobile app (voltage, temperatures, throttle position)
 2. **Test Planning**: Define test type and parameters
 3. **Data Capture**: Record telemetry during test execution
-4. **Metadata Creation**: Generate metadata file with baseline readings
-5. **Indexing**: Update master log index with new entries
+4. **Raw Data Storage**: Place `capture.txt` in the `capture/` directory
+5. **Processing**: Convert `capture.txt` to `SCN_YYYY_MM_DD_XXX.log` in appropriate date folder
+6. **Metadata Creation**: Generate metadata file with baseline readings
+7. **Indexing**: Update master log index with new entries
 
 ### Metadata Fields
 

@@ -15,11 +15,12 @@
 - [ ] **Notes** (any unusual conditions)
 
 ### 3. File Management
+- [ ] Place **capture.txt** in the `capture/` directory
 - [ ] Generate **Scenario ID** (SCN_YYYY_MM_DD_XXX format)
-- [ ] Rename capture.txt to SCN_YYYY_MM_DD_XXX.log
+- [ ] Process capture.txt → SCN_YYYY_MM_DD_XXX.log in logs/YYYY-MM-DD/
 - [ ] Create metadata JSON file
 - [ ] Update master_log_index.csv with test description and hyperlinks
-- [ ] Place files in correct date folder
+- [ ] Remove processed capture.txt from capture/ directory
 
 ## Example Scenario ID Generation
 - Date: 2025-08-12
